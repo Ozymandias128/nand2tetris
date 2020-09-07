@@ -14,23 +14,6 @@ CHIP Register {
     OUT out[16];
 
     PARTS:
-    // Mux16(a=outToMux, b=in, sel=load, out=outToDFF);
-    // DFF(in=outToDFF[0], out=out[0], out=outToMux[0]);
-    // DFF(in=outToDFF[1], out=out[1], out=outToMux[1]);
-    // DFF(in=outToDFF[2], out=out[2], out=outToMux[2]);
-    // DFF(in=outToDFF[3], out=out[3], out=outToMux[3]);
-    // DFF(in=outToDFF[4], out=out[4], out=outToMux[4]);
-    // DFF(in=outToDFF[5], out=out[5], out=outToMux[5]);
-    // DFF(in=outToDFF[6], out=out[6], out=outToMux[6]);
-    // DFF(in=outToDFF[7], out=out[7], out=outToMux[7]);
-    // DFF(in=outToDFF[8], out=out[8], out=outToMux[8]);
-    // DFF(in=outToDFF[9], out=out[9], out=outToMux[9]);
-    // DFF(in=outToDFF[10], out=out[10], out=outToMux[10]);
-    // DFF(in=outToDFF[11], out=out[11], out=outToMux[11]);
-    // DFF(in=outToDFF[12], out=out[12], out=outToMux[12]);
-    // DFF(in=outToDFF[13], out=out[13], out=outToMux[13]);
-    // DFF(in=outToDFF[14], out=out[14], out=outToMux[14]);
-    // DFF(in=outToDFF[15], out=out[15], out=outToMux[15]);
     Bit(in=in[0], load=load, out=out[0]);
     Bit(in=in[1], load=load, out=out[1]);
     Bit(in=in[2], load=load, out=out[2]);
