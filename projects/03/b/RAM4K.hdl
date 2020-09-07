@@ -15,5 +15,19 @@ CHIP RAM4K {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    // larger RAM chips will always have the 3 MSBs to signify how to give the load to the largest RAM block, then the lower address bits all delegate the info down to the smaller ram chips.
+
+    DMux8Way(in=load, sel=address[9..11], a=r4k0, b=r4k1, c=r4k2, d=r4k3, e=r4k4, f=r4k5, g=r4k6, h=r4k7);
+
+    // Remember that the address bus size needs to match the log_2_N of the RAM chip! RAM512 = addy[8],RAM64 = addy[6], RAM 8 = addy[3], etc.
+    RAM512(in=in, load=r4k0, address=address[0..8], out=outToMux1);
+    RAM512(in=in, load=r4k1, address=address[0..8], out=outToMux2);
+    RAM512(in=in, load=r4k2, address=address[0..8], out=outToMux3);
+    RAM512(in=in, load=r4k3, address=address[0..8], out=outToMux4);
+    RAM512(in=in, load=r4k4, address=address[0..8], out=outToMux5);
+    RAM512(in=in, load=r4k5, address=address[0..8], out=outToMux6);
+    RAM512(in=in, load=r4k6, address=address[0..8], out=outToMux7);
+    RAM512(in=in, load=r4k7, address=address[0..8], out=outToMux8);
+
+    Mux8Way16(a=outToMux1, b=outToMux2, c=outToMux3, d=outToMux4, e=outToMux5, f=outToMux6, g=outToMux7, h=outToMux8, sel=address[9..11], out=out);
 }
